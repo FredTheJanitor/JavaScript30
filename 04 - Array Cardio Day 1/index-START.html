@@ -52,13 +52,19 @@
 // this was a manual example similar to how I did it in the previous javascript.info task
 // it works but the example video is using .filter
 
-const fifteenHundredsInventors = inventors.filter((inventor)=> {
-  if (inventor.year < 1600 && inventor.year >1499) {
-    return true;
-  }
-})
+// const fifteenHundredsInventors = inventors.filter((inventor)=> {
+//   if (inventor.year < 1600 && inventor.year >1499) {
+//     return true;
+//   }
+// })
 
-console.table(fifteenHundredsInventors);
+// console.table(fifteenHundredsInventors);
+// this was the initial code along version, but it can be shortened.
+const fifteen = inventors.filter(inventor => (inventor.year < 1600 && inventor.year >1499));
+// this version should work because filter is looking for a function that returns a boolean, so
+// since we are looking for 1 type of thing that is either true or false, we can just plug in
+// the condition directly.
+console.table(fifteen);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
