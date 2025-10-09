@@ -67,18 +67,30 @@ const fifteen = inventors.filter(inventor => (inventor.year < 1600 && inventor.y
 console.table(fifteen);
 
 // ------------------------------Extra Mini Exercises from ChatGPT---------------------------------
+// 🧪 Filter Practice 1
 // Goal output:
 // An array of inventors where year is between 1600 and 1699, inclusive.
 const sixteen = inventors.filter((inventor)=> (inventor.year >= 1600 && inventor.year <= 1699))
 console.log('see 1600s below');
 console.table(sixteen);
 console.log('see inventors who lived at least 70 years below')
+
+// 🧪 Filter Practice 2
 // Filter the inventors who lived at least 70 years.
 
 // 🧩 Hint:
 // You can calculate lifespan with passed - year.
 const seventyYearsYoungOrBetter = inventors.filter((inventor)=>((inventor.passed - inventor.year) >= 70));
 console.table(seventyYearsYoungOrBetter);
+
+// 🧪 Filter Practice 3
+// Filter the inventors whose last name starts with “B”.
+const bLastNameInventors = inventors.filter((inventor)=>(inventor.last[0] == "B"));
+console.log(` here are the inventors whose last name starts with “B”.`);
+console.table(bLastNameInventors);
+
+
+
 // ------------------------------End .filter Exercises from Chat------------------------------------
 
     // Array.prototype.map()
