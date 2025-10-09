@@ -88,7 +88,18 @@ console.table(seventyYearsYoungOrBetter);
 const bLastNameInventors = inventors.filter((inventor)=>(inventor.last[0] == "B"));
 console.log(` here are the inventors whose last name starts with “B”.`);
 console.table(bLastNameInventors);
+//🧪 Filter Practice 4
 
+// Filter the inventors who were born before 1600 OR died after 1900.
+const bornBefore1600OrDiedAfter1900 = inventors.filter((inventor)=>(inventor.year < 1600 || inventor.passed > 1900 ));
+console.log(`Here are the inventors who were born before 1600 OR died after 1900.` );
+console.table(bornBefore1600OrDiedAfter1900);
+
+// 🧪 Filter Practice 5
+// Filter the inventors who have a first name longer than 5 characters.
+const firstNameLongerThan5 = inventors.filter((inventor)=>(inventor.first.length > 5));
+console.log("Here are the inventors who have a first name longer than 5 characters.");
+console.table(firstNameLongerThan5);
 
 
 // ------------------------------End .filter Exercises from Chat------------------------------------
