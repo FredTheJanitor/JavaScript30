@@ -101,6 +101,12 @@ const firstNameLongerThan5 = inventors.filter((inventor)=>(inventor.first.length
 console.log("Here are the inventors who have a first name longer than 5 characters.");
 console.table(firstNameLongerThan5);
 
+// 🧪 Filter Practice 6
+// Filter the inventors who were born after 1800 and have a last name ending in “e”.
+const bornAfter1800LastNameEndsE = inventors.filter((arrayItem)=>(arrayItem.year > 1800 && arrayItem.last.at(-1) === "e"));
+console.log("Here are the inventors who were born after 1800 and have a last name ending in “e”");
+console.table(bornAfter1800LastNameEndsE);
+
 
 // ------------------------------End .filter Exercises from Chat------------------------------------
 
