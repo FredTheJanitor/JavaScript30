@@ -161,15 +161,32 @@ console.table(lifespanAndFullName);
 // "<FIRST> <LAST> was born in <YEAR>."
 // 🧩 Example output:
 // ["Albert Einstein was born in 1879.", "Isaac Newton was born in 1643.", ...]
+const inventorBornSentence = inventors.map((inventor)=> `${inventor.first} ${inventor.last} was born in ${inventor.year}.`);
+console.log("here is an array of strings in this format:<FIRST> <LAST> was born in <YEAR>.")
+console.table(inventorBornSentence);
 
 // 🔀 Map + String Method Challenge (Bonus)
 // Return an array of lowercased last names.
 // 🧩 Example output:
 // ["einstein", "newton", "galilei", ...]
+
+const lowercasedLastNames = inventors.map((item)=>item.last.toLocaleLowerCase());
+console.log("Here is an array of lowercased last names.");
+console.table(lowercasedLastNames);
+
 // -------------------------------End map Exercises from ChatGPT----------------------------------
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+
+const sorted = inventors.sort(function(a,b) {
+  if (a.year > b.year) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
+console.table(sorted);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
