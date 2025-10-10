@@ -134,6 +134,10 @@ console.table(firstNames);
 
 // ⚡ Map Practice 2
 // Create an array of inventors’ lifespans (years lived).
+const lifespan = inventors.map((item)=>item.last + ": " + (item.passed - item.year));
+console.log("array of inventors’ lifespans (years lived).");
+console.table(lifespan);
+
 // 🧩 Hint: use passed - year.
 // 🧩 Example output: [76, 84, 78, ...]
 
