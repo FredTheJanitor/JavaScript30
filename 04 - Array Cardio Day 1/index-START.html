@@ -107,6 +107,12 @@ const bornAfter1800LastNameEndsE = inventors.filter((arrayItem)=>(arrayItem.year
 console.log("Here are the inventors who were born after 1800 and have a last name ending in “e”");
 console.table(bornAfter1800LastNameEndsE);
 
+// 🧪 Filter Practice 7 (⚡ bonus)
+// Filter the inventors who were alive in the year 1600 (i.e. inventor.year <= 1600 && inventor.passed >= 1600).
+const aliveDuring1600 = inventors.filter((person)=>(person.year <= 1600 && person.passed >=1600));
+console.log("Here are the inventors who were alive in the year 1600");
+console.table(aliveDuring1600);
+
 
 // ------------------------------End .filter Exercises from Chat------------------------------------
 
