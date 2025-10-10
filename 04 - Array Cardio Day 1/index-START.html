@@ -119,6 +119,10 @@ console.table(aliveDuring1600);
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
 
+const firstAndLastNames = inventors.map((person)=>person.first + " " + person.last);
+console.log('Here is an array of the inventors first and last names');
+console.table(firstAndLastNames);
+
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
 
