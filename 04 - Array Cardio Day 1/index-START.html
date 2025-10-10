@@ -145,6 +145,11 @@ console.table(lifespan);
 // Create an array of objects with only the inventor’s name and lifespan.
 // 🧩 Example output:
 
+const lifespanAndFullName = inventors.map((item)=>item.first + " " + item.last + ": lifespan: " + (item.passed - item.year));
+console.log("array of inventors’ lifespans (years lived).");
+console.table(lifespanAndFullName);
+//this one was mostly copy paste because I already did it, so I just added the other name
+
 // [
 //   { name: "Albert Einstein", lifespan: 76 },
 //   { name: "Isaac Newton", lifespan: 84 },
