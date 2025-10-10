@@ -66,7 +66,7 @@ const fifteen = inventors.filter(inventor => (inventor.year < 1600 && inventor.y
 // the condition directly.
 console.table(fifteen);
 
-// ------------------------------Extra Mini Exercises from ChatGPT---------------------------------
+// ------------------------------Extra filter Exercises from ChatGPT---------------------------------
 // 🧪 Filter Practice 1
 // Goal output:
 // An array of inventors where year is between 1600 and 1699, inclusive.
@@ -122,6 +122,42 @@ console.table(aliveDuring1600);
 const firstAndLastNames = inventors.map((person)=>person.first + " " + person.last);
 console.log('Here is an array of the inventors first and last names');
 console.table(firstAndLastNames);
+
+// ------------------------------Extra map Exercises from ChatGPT---------------------------------
+// 🧠 Map Practice 1
+// Create an array of inventors’ first names only.
+// 🧩 Example output: ["Albert", "Isaac", "Galileo", ...]
+
+const firstNames = inventors.map((item)=>item.first);
+console.log(" Here is an array of inventors’ first names only.");
+console.table(firstNames);
+
+// ⚡ Map Practice 2
+// Create an array of inventors’ lifespans (years lived).
+// 🧩 Hint: use passed - year.
+// 🧩 Example output: [76, 84, 78, ...]
+
+// 🧩 Map Practice 3
+// Create an array of objects with only the inventor’s name and lifespan.
+// 🧩 Example output:
+
+// [
+//   { name: "Albert Einstein", lifespan: 76 },
+//   { name: "Isaac Newton", lifespan: 84 },
+//   ...
+// ]
+
+// 💡 Map Practice 4
+// Create an array of strings in this format:
+// "<FIRST> <LAST> was born in <YEAR>."
+// 🧩 Example output:
+// ["Albert Einstein was born in 1879.", "Isaac Newton was born in 1643.", ...]
+
+// 🔀 Map + String Method Challenge (Bonus)
+// Return an array of lowercased last names.
+// 🧩 Example output:
+// ["einstein", "newton", "galilei", ...]
+// -------------------------------End map Exercises from ChatGPT----------------------------------
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
