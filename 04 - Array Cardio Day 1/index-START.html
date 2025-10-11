@@ -222,7 +222,9 @@ console.table(sortedByLifeSpan);
 // 💡 Sort Practice 4:
 
 // Sort the inventors alphabetically by last name (A → Z).
-
+const sortByLastName = inventors.sort((a,b)=>(a.last>b.last)?1:-1);
+console.log("Sort the inventors alphabetically by last name (A → Z)");
+console.table(sortByLastName);
 
 // 🔀 Sort Practice 5 (Bonus Challenge):
 
