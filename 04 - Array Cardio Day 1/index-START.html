@@ -205,24 +205,29 @@ console.table(sortedByYearReversed);
 // 🧩 Hint: flip the comparison operator or reverse the order in the ternary.
 
 // ⚡ Sort Practice 2:
-
 // Sort the inventors by year of death, oldest death → most recent death.
+const sortedByPassed = inventors.sort((a,b)=>(a.passed > b.passed)?1:-1);
+console.log("Sort the inventors by year of death, oldest death → most recent death.");
+console.table(sortedByPassed);
+
 // 🧩 Think: a.passed > b.passed ? 1 : -1
 
 // 🧩 Sort Practice 3:
-
 // Sort the inventors by years lived, longest-lived → shortest-lived.
-// 🧩 Hint: lifespan = passed - year
+
+const sortedByLifeSpan = inventors.sort((a,b)=>((a.passed-a.year)<(b.passed-b.year))?1:-1);
+console.log("Sort the inventors by years lived, longest-lived → shortest-lived.");
+console.table(sortedByLifeSpan);
 
 // 💡 Sort Practice 4:
 
 // Sort the inventors alphabetically by last name (A → Z).
-// 🧩 You’ll need to compare a.last and b.last.
+
 
 // 🔀 Sort Practice 5 (Bonus Challenge):
 
 // Sort the inventors alphabetically by first name, but in reverse (Z → A) order.
-// 🧩 Flip the ternary result!
+
 
 // -------------------------------End sort Exercises from ChatGPT----------------------------------
 
