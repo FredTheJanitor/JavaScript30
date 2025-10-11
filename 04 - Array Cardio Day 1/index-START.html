@@ -215,7 +215,12 @@ console.table(sortedByPassed);
 // 🧩 Sort Practice 3:
 // Sort the inventors by years lived, longest-lived → shortest-lived.
 
-const sortedByLifeSpan = inventors.sort((a,b)=>((a.passed-a.year)<(b.passed-b.year))?1:-1);
+// rewrote this to be more legible and not have math in a ternary lol
+const sortedByLifeSpan = inventors.sort((a,b)=>{
+  const lifeSpanA = (a.passed-a.year);
+  const lifespanB = (b.passed-b.year);
+  return (lifeSpanA<lifespanB)?1:-1
+});
 console.log("Sort the inventors by years lived, longest-lived → shortest-lived.");
 console.table(sortedByLifeSpan);
 
@@ -227,16 +232,38 @@ console.log("Sort the inventors alphabetically by last name (A → Z)");
 console.table(sortByLastName);
 
 // 🔀 Sort Practice 5 (Bonus Challenge):
-
 // Sort the inventors alphabetically by first name, but in reverse (Z → A) order.
+const sortByFirstNameReversed = inventors.sort((a,b)=>(a.first<b.first)?1:-1);
+console.log("Sort the inventors alphabetically by first name, but in reverse (Z → A) order.");
+console.table(sortByFirstNameReversed);
 
 
 // -------------------------------End sort Exercises from ChatGPT----------------------------------
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+const totalYearsLivedSum = inventors.reduce((total,inventor) => {
+  return total + inventor.passed - inventor.year;
+},0)
+console.log("How many years did all the inventors live all together?");
+console.table(totalYearsLivedSum);
 
     // 5. Sort the inventors by years lived
+
+// already did this thanks to gpt but the video shows a way that while more verbose, seems more legible
+const sortedByLifeSpanPretty = inventors.sort((a,b)=>{
+  // this is the part i find more legible if someone was coming back:
+  const inventorALifeSpan = a.passed-a.year;
+  const inventorBLifeSpan = b.passed-b.year;
+  // the below works because sort is looking for a positive or negative number as a result
+  // you need to remember return when using this way, because one liners dont need it but expanded
+  // bracket functions do need an explicit return.
+  return (inventorALifeSpan > inventorBLifeSpan) ? 1 : -1
+  // for reference initial way i did this was like this:
+  // ((a.passed-a.year) > (b.passed-b.year)) ? 1 : -1
+});
+console.log("Sort the inventors by years lived");
+console.table(sortedByLifeSpanPretty);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
