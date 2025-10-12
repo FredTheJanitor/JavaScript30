@@ -310,9 +310,26 @@ console.table(boulevardNames);
 // Exercise 2 — Filter by “Saint”
 // Find only the boulevard names that contain "Saint".
 // Output the resulting array.
+const boulevardContainer = document.querySelector(".mw-category");
+const boulevardLinks = Array.from(boulevardContainer.querySelectorAll("a"));
+const boulevardSaintNames = boulevardLinks
+                                      .map(link=>link.textContent)
+                                      // here i had name.contains instead of name.includes
+                                      .filter(name=>name.includes("Saint"));
+console.table(boulevardSaintNames);
 
 
 // Exercise 3 — Find names starting with “Boulevard de”
+// create a variable to hold the container of all of the Boulevard Links
+const containerOfBlvdLinks = document.querySelector(".mw-category");
+// create a variable to hold the links and house them in an array
+const arrayOfBlvdLinks = Array.from(containerOfBlvdLinks.querySelectorAll("a"));
+// create a third variable to hold the final result of:
+// checking those array items for their text content and returning them just as so
+// checking those text contents for "Boulevard de" starting at index[0]
+// console log a table with the filtered values
+
+
 // Extract only the names that start with "Boulevard de".
 // (Think about String.prototype.startsWith().)
 
