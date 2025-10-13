@@ -270,96 +270,108 @@ console.table(sortedByLifeSpanPretty);
     // this one i want to focus on because it seems like it would be useful for webscraping etc
     // (and also im super rusty on DOM selection of HTML elements lol)
 
-// step one is inspect the webpage and find the smallest container that has all the links:
-// mine appears to have two classes now, probably for styling  mw-category-columns
-// we'll see...
-const category = document.querySelector('.mw-category');
-// this next one looks for links and assigns them into a variable as a NodeList
-//const links = category.querySelectorAll('a');
-//convert to NodeList:
-const links = Array.from(category.querySelectorAll('a'));
+// // step one is inspect the webpage and find the smallest container that has all the links:
+// // mine appears to have two classes now, probably for styling  mw-category-columns
+// // we'll see...
+// const category = document.querySelector('.mw-category');
+// // this next one looks for links and assigns them into a variable as a NodeList
+// //const links = category.querySelectorAll('a');
+// //convert to NodeList:
+// const links = Array.from(category.querySelectorAll('a'));
 
-// create a variable 
-const de = links
-// that runs over each link in the list, and returns text content
-          .map(link => link.textContent)
-// and filters that textContent for only names that include "de"
-          .filter(streetName => streetName.includes("de"));
-// OH NO NodeLists arent arrays
+// // create a variable 
+// const de = links
+// // that runs over each link in the list, and returns text content
+//           .map(link => link.textContent)
+// // and filters that textContent for only names that include "de"
+//           .filter(streetName => streetName.includes("de"));
+// // OH NO NodeLists arent arrays
 
 // ------------------------------Extra DOM Exercises from ChatGPT---------------------------------
-// (these are in the console. so the errors in this html doc dont matter as each code snippet is
-// designed to be copy and pasted into the console, not run as a contiguous program)
+// // (these are in the console. so the errors in this html doc dont matter as each code snippet is
+// // designed to be copy and pasted into the console, not run as a contiguous program)
 
-// Exercise 1 — Collect all boulevard names
-// Create an array of all boulevard names from the .mw-category section.
-// Then console.table() the result.
+// // Exercise 1 — Collect all boulevard names
+// // Create an array of all boulevard names from the .mw-category section.
+// // Then console.table() the result.
 
-//assign a variable "boulevardContainer" to hold document node class .mw-category
-const boulevardContainer = document.querySelector(".mw-category");
-// within the container gather all of the links which are the boulevard names and
-// convert node list to an array with array.from
-const boulevardLinks = Array.from(boulevardContainer.querySelectorAll("a"));
-// when I console table this it returns a ton of properties cool, like index, target, protocol:
-// console table that bitch
-console.table(boulevardLinks);
-// I think its possible maybe I jumped the gun here on converting to array, maybe i need to
-// extract text content for it first? I remember using map... hm maybe if i map the boul links
-const boulevardNames = boulevardLinks
-                                .map(link=>link.textContent);
-console.table(boulevardNames);
+// //assign a variable "boulevardContainer" to hold document node class .mw-category
+// const boulevardContainer = document.querySelector(".mw-category");
+// // within the container gather all of the links which are the boulevard names and
+// // convert node list to an array with array.from
+// const boulevardLinks = Array.from(boulevardContainer.querySelectorAll("a"));
+// // when I console table this it returns a ton of properties cool, like index, target, protocol:
+// // console table that bitch
+// console.table(boulevardLinks);
+// // I think its possible maybe I jumped the gun here on converting to array, maybe i need to
+// // extract text content for it first? I remember using map... hm maybe if i map the boul links
+// const boulevardNames = boulevardLinks
+//                                 .map(link=>link.textContent);
+// console.table(boulevardNames);
 
-// Exercise 2 — Filter by “Saint”
-// Find only the boulevard names that contain "Saint".
-// Output the resulting array.
-const boulevardContainer = document.querySelector(".mw-category");
-const boulevardLinks = Array.from(boulevardContainer.querySelectorAll("a"));
-const boulevardSaintNames = boulevardLinks
-                                      .map(link=>link.textContent)
-                                      // here i had name.contains instead of name.includes
-                                      .filter(name=>name.includes("Saint"));
-console.table(boulevardSaintNames);
-
-
-// Exercise 3 — Find names starting with “Boulevard de”
-// create a variable to hold the container of all of the Boulevard Links
-const containerOfBlvdLinks = document.querySelector(".mw-category");
-// create a variable to hold the links and house them in an array
-const arrayOfBlvdLinks = Array.from(containerOfBlvdLinks.querySelectorAll("a"));
-// create a third variable to hold the final result of:
-const namesStartBlvdDe = arrayOfBlvdLinks
+// // Exercise 2 — Filter by “Saint”
+// // Find only the boulevard names that contain "Saint".
+// // Output the resulting array.
+// const boulevardContainer = document.querySelector(".mw-category");
+// const boulevardLinks = Array.from(boulevardContainer.querySelectorAll("a"));
+// const boulevardSaintNames = boulevardLinks
+//                                       .map(link=>link.textContent)
+//                                       // here i had name.contains instead of name.includes
+//                                       .filter(name=>name.includes("Saint"));
+// console.table(boulevardSaintNames);
 
 
-// checking those array items for their text content and returning them just as so
-                                .map(link=>link.textContent)
-// checking those text contents for "Boulevard de" 
-                                .filter(name=>name.includes("Boulevard de"))
-// make sure we filter any out that dont start at index[0] and filter out "des" by clarifying the
-// space at the end.
-                                .filter(namesWBlvdDe => namesWBlvdDe.startsWith("Boulevard de "));
-// console log a table with the filtered values
-console.table(namesStartBlvdDe);
+// // Exercise 3 — Find names starting with “Boulevard de”
+// // create a variable to hold the container of all of the Boulevard Links
+// const containerOfBlvdLinks = document.querySelector(".mw-category");
+// // create a variable to hold the links and house them in an array
+// const arrayOfBlvdLinks = Array.from(containerOfBlvdLinks.querySelectorAll("a"));
+// // create a third variable to hold the final result of:
+// const namesStartBlvdDe = arrayOfBlvdLinks
 
 
-// Extract only the names that start with "Boulevard de".
-// (Think about String.prototype.startsWith().)
+// // checking those array items for their text content and returning them just as so
+//                                 .map(link=>link.textContent)
+// // checking those text contents for "Boulevard de" 
+//                                 .filter(name=>name.includes("Boulevard de"))
+// // make sure we filter any out that dont start at index[0] and filter out "des" by clarifying the
+// // space at the end.
+//                                 .filter(namesWBlvdDe => namesWBlvdDe.startsWith("Boulevard de "));
+// // console log a table with the filtered values
+// console.table(namesStartBlvdDe);
 
 
-// Exercise 4 — Sort by length
-// Take your array of boulevard names and return a new array sorted by name length 
-// (shortest to longest).
+// // Extract only the names that start with "Boulevard de".
+// // (Think about String.prototype.startsWith().)
 
 
-// Exercise 5 — Transform into objects
-// Create a new array of objects like:
-// { name: "Boulevard de Magenta", length: 20 }
-// using .map() — where length is the character count of each boulevard name.
+// // Exercise 4 — Sort by length
+// // Take your array of boulevard names and return a new array sorted by name length 
+// .sort((a,b)=>a.length - b.length)
+// // (shortest to longest).
 
 
-// Exercise 6 — Bonus: scrape titles only
-// Instead of textContent, use the title attribute from each link (link.title) 
-// and make an array of all titles that differ from the visible text.
+// // Exercise 5 — Transform into objects
+// // Create a new array of objects like:
+// // { name: "Boulevard de Magenta", length: 20 }
+// // using .map() — where length is the character count of each boulevard name.
+// const containerOfBlvdLinks = document.querySelector(".mw-category");
+// const blvdLinks = Array.from(containerOfBlvdLinks.querySelectorAll("a"));
+// const blvdNames = blvdLinks.map(link=>link.textContent);
+// // ok so issue i had here was name=>{} expects a function block, when were trying to
+// // define an object, so wrapping in () will say hayyy this is an object bitch
+// // () let it be read as an expression
+// const nameAndLength = blvdNames.map(name=>({name: name, namelength: name.length}));
+// console.table(nameAndLength);
 
+
+// // Exercise 6 — Bonus: scrape titles only
+// // Instead of textContent, use the title attribute from each link (link.title) 
+// // and make an array of all titles that differ from the visible text.
+// const linkContainer = document.querySelector(".mw-category");
+// const blvdLinks = Array.from(linkContainer.querySelectorAll("a"));
+// const titleDoesntMatch = blvdLinks.filter((link)=>(link.textContent !== link.title));
+// console.table(titleDoesntMatch);
 
 // -------------------------------End DOM Exercises from ChatGPT----------------------------------
 
