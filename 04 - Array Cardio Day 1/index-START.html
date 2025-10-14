@@ -379,7 +379,54 @@ console.table(sortedByLifeSpanPretty);
     // Sort the people alphabetically by last name
 const lastNamePeople = people.sort()
 console.table(lastNamePeople);
+// ok so yeah, but the point of this one was to split a messy string into parts and then sort said parts.
+// first line is grabbing the array and starting a sort function.
+const alphaLastPeople = people.sort((a,b)=>{
+  // this line is basically breaking up eacj line into a little array (for the first comparison thing)
+  const [aLast, aFirst] = a.split(", ");
+  // this line is the same as the previous except it is for the 2nd variable to be compared by sort
+  const [bLast, bFirst] = b.split(", ");
+  // this line clarifies that we are sorting only that piece that was broken off when we split the strings
+  return aLast > bLast ? 1 : -1
+})
 
+// ------------------------------Start split,deconstruct,sort Exercises from ChatGPT---------------------------------
+// this is useful practice for when we have messy data, like an array of strings that REALLY include 2 elements, but
+// they are concatenated in someway where they cant be worked on individually:
+
+// sorting by first name next.
+const sortFirstName = people.sort((a,b)=>{
+  // deconstruct so pieces will go where they need to
+  const [lastNameA, firstNameA] = a.split(", ");
+  // deconstruct for the second array item's parts to be split
+  const [lastNameB, firstNameB] = b.split(", "); 
+  // return the ternary that compares the parts to order the array with sort
+  return firstNameA > firstNameB ? 1 : -1 
+})
+console.table(sortFirstName);
+
+// Sort by length of the first name.
+// step one is grab array and put into a sort function
+const namesByFirstNameLength = people.sort((a,b)=>{
+  // next we count the number of parts (2) and find break point (", ")
+  // deconstruct string into 2 items by splitting the first "a" string at breaking point
+  const [lastNameA, firstNameA] = a.split(", ");
+  // deconstruct stringB the same way
+  const [lastNameB, firstNameB] = b.split(", ");
+  // compare the first names' lengths to sort the array and return the value to the sort
+  return (firstNameA.length > firstNameB.length) ? 1 : -1
+});
+// log the results of the sort into a table to check the results:
+console.table(namesByFirstNameLength);
+
+// Sort by last letter of last name.
+
+// Sort reverse alphabetically by first name.
+
+// Sort by number of characters in the last name only.
+
+
+// -------------------------------End split,deconstruct,sort Exercises from ChatGPT----------------------------------
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
