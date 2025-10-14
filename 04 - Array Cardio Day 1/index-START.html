@@ -420,10 +420,45 @@ const namesByFirstNameLength = people.sort((a,b)=>{
 console.table(namesByFirstNameLength);
 
 // Sort by last letter of last name.
+// step one is gather the data into a sort function, we will break it down within it
+const sortedByLastLetterOfLastName = people.sort((a,b)=>{
+  // step two is break down messy data into optimal number of groups through destruct/split
+  const [lastNameA,firstNameA] = a.split(", ");
+  // this breaks up string b at ", " into lastNameB and firstNameB as elements of an array
+  const [lastNameB,firstNameB] = b.split(", ");
+  // now that first and last name can be accessed seperately, we can sort by last letter of last name
+  return (lastNameA.at(-1) > lastNameB.at(-1))?1:-1;
+})
+// display results in console to ensure it worked:
+console.table(sortedByLastLetterOfLastName);
 
 // Sort reverse alphabetically by first name.
+// step one is grab the data to be sorted
+const namesRevAlphFirstName = people.sort((a,b)=>{
+  // next step is deconstruct string a into its components to sort one of them
+  const [lastNameA, firstNameA] = a.split(", ");
+  //  after that we need to separate the string in item b into the same components to sort against a
+  const [lastNameB, firstNameB] = b.split(", ");
+  // finally we need to grab the first names, and return them to the sort function so that way their containing
+  // items can be sorted in reverse alphabetical order (I reversed it by flipping > to <)
+  return (firstNameA < firstNameB)?1:-1
+})
+// log the results and check it
+console.table(namesRevAlphFirstName);
 
 // Sort by number of characters in the last name only.
+// step one grab and begin sort to a variable
+const namesByLengthOfLast = people.sort((a,b)=>{
+  // now we need to get a part of a (the last name part) separated so we can compare it to b's last name
+  // in order to do that we break apart string with split and deconstruct the two split items into separate items within an array:
+  const [lastNameA,firstNameA]=a.split(", ");
+  // now we split b the same way so different items of the original array can be compared by their parts:
+  const [lastNameB,firstNameB]=b.split(", ");
+  // finally we can grab the last names to get their lengths (and compare them since .length is mad easy)
+  return (lastNameA.length > lastNameB.length)?1:-1;
+})
+// check the result in a table within the console.
+console.table(namesByLengthOfLast);
 
 
 // -------------------------------End split,deconstruct,sort Exercises from ChatGPT----------------------------------
