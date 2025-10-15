@@ -482,7 +482,94 @@ console.table(namesByLengthOfLast);
     // this is an empy object, just the curly braces, but that can be weird
     {})
     console.log(transportation);
+// -------------------------------Start reduce/tally Exercises from ChatGPT----------------------------------
+// 🧩 Now — practice problems
+// Here are five short tallying exercises you can use to reinforce this pattern.
+// Each should produce a simple object (like { key: count }).
+// Use your exact syntax pattern — repetition here is gold.
 
+// 1️⃣ Tally fruit counts
+const fruits = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
+// first step would be declaring a variable to house an object that will have the count
+const fruitTallyHoe = fruits.reduce((counter,fruit)=>{
+  // make initial count 0:
+  if (!counter[fruit]) {
+    counter[fruit] = 0;
+  }
+  // this should increment the fruit
+  counter[fruit]++
+  // this should return the object 
+  return counter
+},
+// here is the empty object where we will store them:
+{});
+// output object
+console.log(fruitTallyHoe);
+
+
+// Goal output:
+// { apple: 3, banana: 2, orange: 1 }
+
+// 2️⃣ Tally first letters of names
+const names = ['Alice', 'Adam', 'Bob', 'Barry', 'Catherine', 'Chris', 'Cindy'];
+// start out with a variable running reduce across the items within the array
+const firstLetterNameTally = names.reduce((theTallies,theName)=>{
+  if (!theTallies[theName[0]]) {
+    theTallies[theName[0]]=0;
+  }
+  theTallies[theName[0]]++;
+  // this should return the object with the incrementation
+  return theTallies;
+}
+// this is the initial value of theTally we make it an empty object so item value pairs can be incremented within it
+,{})
+console.log(firstLetterNameTally);
+
+
+// Goal output:
+// { A: 2, B: 2, C: 3 }
+
+
+// 💡 Hint: use name[0] or name.charAt(0) as your key.
+
+// 3️⃣ Tally number parity (even vs odd)
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
+// Goal output:
+// { even: 4, odd: 5 }
+
+
+// 💡 Hint: item % 2 === 0 ? 'even' : 'odd'
+
+// 4️⃣ Tally word lengths
+const words = ['sun', 'moon', 'star', 'sky', 'comet', 'galaxy', 'sun'];
+
+
+// Goal output:
+// { 3: 2, 4: 2, 5: 1, 6: 1 }
+
+
+// 💡 Hint: use word.length as your key.
+
+// 5️⃣ Tally votes
+ const votes = ['yes', 'no', 'yes', 'yes', 'no', 'abstain', 'yes'];
+
+
+// Goal output:
+// { yes: 4, no: 2, abstain: 1 }
+
+// 🧩 Optional: “level-up” version
+// You can also practice using reduce + object shorthand:
+
+// const counts = data.reduce((acc, item) => ({
+//   ...acc,
+//   [item]: (acc[item] || 0) + 1
+// }), {});
+
+
+// It’s the same logic, just compact — but your explicit version is better for learning and debugging.
+// --------------------------------End reduce/tally Exercises from ChatGPT-----------------------------------
   </script>
 </body>
 </html>
