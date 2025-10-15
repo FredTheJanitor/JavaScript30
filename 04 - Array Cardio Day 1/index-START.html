@@ -534,6 +534,30 @@ console.log(firstLetterNameTally);
 
 // 3️⃣ Tally number parity (even vs odd)
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// write a variable to hold an object that runs over this array using reduce
+const countOfEvenAndOdd = numbers.reduce((numberCounterBox, number)=>{
+  // define an if statement to create 2 options for evenOrOddStatus and begin count at 0 for each
+  // set initial count for 2 options since they are known
+  // increment the number of even or odd 
+  let odd
+  let even
+  if (!numberCounterBox[even]) {
+    numberCounterBox[even] = 0
+  } else if (!numberCounterBox[odd]) {
+    
+  }
+  if (number%2===0) {
+    numberCounterBox[even]++
+  } else {
+    numberCounterBox[odd]++
+  }
+  // return the object
+  return numberCounterBox
+},
+// here is the initial object for which items from the array can be incremented to:
+{});
+// log the results to the console:
+console.log(countOfEvenAndOdd);
 
 
 // Goal output:
