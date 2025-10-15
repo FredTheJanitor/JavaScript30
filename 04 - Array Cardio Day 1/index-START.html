@@ -466,6 +466,23 @@ console.table(namesByLengthOfLast);
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    // start by assigning a variable the data to reduce (you can use an object for tallying over each item)
+    const transportation = data.reduce((obj,item)=>{
+      // this is a starting point for ANY object setting any hypothetical item to be inserted an initial count of 0
+      // if there is no item in the object
+        if(!obj[item]) {
+          // there is a count of 0 in the object (this is so we can increment it, cant increment it to undefined)
+          obj[item] = 0;
+        }
+        // this adds 1 of the item each time it comes across 1
+        obj[item]++;
+        // this returns the whole object at the end
+        return obj;
+    }, 
+    // this is an empy object, just the curly braces, but that can be weird
+    {})
+    console.log(transportation);
+
   </script>
 </body>
 </html>
