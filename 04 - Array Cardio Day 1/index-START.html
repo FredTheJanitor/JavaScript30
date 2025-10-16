@@ -535,24 +535,63 @@ console.log(firstLetterNameTally);
 // 3️⃣ Tally number parity (even vs odd)
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // write a variable to hold an object that runs over this array using reduce
-const countOfEvenAndOdd = numbers.reduce((numberCounterBox, number)=>{
-  // define an if statement to create 2 options for evenOrOddStatus and begin count at 0 for each
-  // set initial count for 2 options since they are known
-  // increment the number of even or odd 
-  let odd
-  let even
-  if (!numberCounterBox[even]) {
-    numberCounterBox[even] = 0
-  } else if (!numberCounterBox[odd]) {
-    
-  }
-  if (number%2===0) {
-    numberCounterBox[even]++
-  } else {
-    numberCounterBox[odd]++
-  }
-  // return the object
-  return numberCounterBox
+
+  // --------------------------------ATTEMPT 1-----------------------------------------------------
+// const countOfEvenAndOdd = numbers.reduce((numberCounterBox, number)=>{
+   // define an if statement to create 2 options for evenOrOddStatus and begin count at 0 for each
+//   // set initial count for 2 options since they are known
+//   // increment the number of even or odd 
+//   let odd
+//   let even
+//   if (!numberCounterBox[evenOrOdd]) {
+//     numberCounterBox[evenOrOdd] = 0
+//   } else if (!numberCounterBox[odd]) {
+
+//   }
+//   if (number%2===0) {
+//     numberCounterBox[even]++
+//   } else {
+//     numberCounterBox[odd]++
+//   }
+//   // return the object
+//   return numberCounterBox
+// ---------------------------------End Attempt 1 ----------------------------------------
+// const countOfEvenAndOdd = numbers.reduce((numberCounterBox, number)=>{
+//   // I need to increment even or odd based on the condition of number
+//   if (!numberCounterBox[even]) {
+//     numberCounterBox[even] = 0
+//   }
+//   if (!numberCounterBox[odd]) {
+//     numberCounterBox[odd] = 0
+//   }
+//   if (number % 2 === 0) {
+//     return numberCounterBox["even"]++
+//   } else {numberCounterBox["odd"]++
+//   }
+// ---------------------------------End Attempt 2 ----------------------------------------
+const countOfEvenAndOdd = numbers
+                            // .map(item=>+item%2)
+                            // .map((item)=> {
+                            //   (+item === 0) ? "even" : "odd"
+                            // })
+                            // issue with this is {} expects explicit return so
+                            .map(item=>+item%2)
+                            .map((item)=> {
+                              if (+item === 0) {
+                                  return "even"
+                                } else {
+                                  return "odd"
+                                }
+                            })
+                            .reduce((numberCounterBox, number)=>{
+                              if (!numberCounterBox[number]) {
+                                numberCounterBox[number] = 0
+                              }
+                              numberCounterBox[number]++;
+                              return numberCounterBox;
+
+
+// --------------------------------------this should stay the same below here ------------
 },
 // here is the initial object for which items from the array can be incremented to:
 {});
@@ -562,12 +601,22 @@ console.log(countOfEvenAndOdd);
 
 // Goal output:
 // { even: 4, odd: 5 }
-
-
 // 💡 Hint: item % 2 === 0 ? 'even' : 'odd'
 
+
+
 // 4️⃣ Tally word lengths
-const words = ['sun', 'moon', 'star', 'sky', 'comet', 'galaxy', 'sun'];
+const celestials = ['sun', 'moon', 'star', 'sky', 'comet', 'galaxy', 'sun'];
+// set a variable that has reduce to run over the array and return an object with the tally
+const tallyObjectOfCelestials = celestials.reduce((theCounter,theItem)=>{
+  if (!theCounter[theItem.length]) {
+    theCounter[theItem.length] = 0
+  }
+  theCounter[theItem.length]++
+  return theCounter;
+}
+,{})
+console.log(tallyObjectOfCelestials);
 
 
 // Goal output:
@@ -578,7 +627,18 @@ const words = ['sun', 'moon', 'star', 'sky', 'comet', 'galaxy', 'sun'];
 
 // 5️⃣ Tally votes
  const votes = ['yes', 'no', 'yes', 'yes', 'no', 'abstain', 'yes'];
+const votesCounted = votes.reduce((accumulator,item)=>{
+  
+  if (!accumulator[item]) {
+    accumulator[item]=0
+  }
+  accumulator[item]++;
+  
+  return accumulator;
+},
 
+{})
+console.log(votesCounted);
 
 // Goal output:
 // { yes: 4, no: 2, abstain: 1 }
