@@ -59,7 +59,69 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+// wes is starting with JUST LOOK FOR THE KEYDOWN! straight off the window. i like it
+window.addEventListener('keydown', playSound)
 
+function playSound(e){
+  // houston we have lift off, events are eventing
+  // console.log(e.keyCode);
+  // this is selecting an internal data property of audio (data-key) based on keycode
+  // of event target, so basically those key codes were mapped beforehand
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]` )
+  // console.log(audio);
+  // now we need to grab the key as well for the animation:
+  const key = document.querySelector(`.key[data-key="${e.keyCode}"]` )
+  // console.log(key);
+  if(!audio) return; // stop function from running if no audio:
+  audio.currentTime = 0; // basically if it is already playing it wont play twice so
+  // setting this to the start makes the sound start over every time the function runs
+  audio.play();
+  key.classList.add('playing');
+}
+
+// create the function to remove the effects and call it removeTransition
+function removeTransition(e) {
+  // examine several transitions that are created by the event:
+  // console.log(e);
+  // only look for one of them now: we picked transform:
+  if (e.propertyName !== 'transform') return; // skipping the other ones essentially
+  // console.log(e.propertyName); // logs 'transform' to the console without the others now
+  // console.log(this); // this is the key
+  this.classList.remove('playing');
+}
+
+
+// add transition end event thing
+// select every element with the class key
+const keys = document.querySelectorAll('.key');
+// transitionend is a property that is watching for some sort of change
+// also as i saw in my attempt, cannot use addEventListener on an array-like object
+// removeTransition is going to remove the effects that were transitioned in
+keys.forEach(key => key.addEventListener('transitionend', removeTransition))
+
+  // my weird attempt
+  // // select all the keys and assign to variable keys
+  // var keys = document.querySelectorAll('.key');
+  // // breakdown array-like object down to its elements
+  // keys.forEach((key)=>{
+  //   // add event listener looking for key down
+  //   key.addEventListener('keydown', keyGlow)
+  // })
+  
+  // // define keyglow to glow when button is pressed
+  // function keyGlow(e){
+  //   console.log(e.target);
+  //   // each individual key
+  //   keys.forEach((key) => {
+  //     // if target of (keyDown) ie the physical button matches text content
+  //     if (e.target.textContent.toLowerCase === key.textContent.toLowerCase) {
+  //       // add the class that adds the glow thing
+  //       key.classList.add('playing')
+  //       key.addEventListener('keyup', () => key.classList.remove('playing'))
+  //     }
+
+  //   })
+  // }
 </script>
 
 
