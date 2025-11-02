@@ -43,6 +43,21 @@
 
 <button></button>
 <script>
+  const divs = document.querySelectorAll('div');
+  function logText(e){
+    console.log(this.classList.value);
+    e.stopPropagation(); // stopPropagation prevents bubbling after first log
+    // stopPropagation will also prevent further captures too if u change capture to true
+    // console.log(this);
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText, {
+    // you can add a THIRD event listener argument (options) weird
+    // capture can flip the direction (catches it on the way down instead of up)
+    // capture: true
+    // default is false:
+    capture: false
+  }));
 
 </script>
 </body>
