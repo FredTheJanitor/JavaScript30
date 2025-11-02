@@ -44,9 +44,11 @@
 <button></button>
 <script>
   const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
+
   function logText(e){
     console.log(this.classList.value);
-    e.stopPropagation(); // stopPropagation prevents bubbling after first log
+    // e.stopPropagation(); // stopPropagation prevents bubbling after first log
     // stopPropagation will also prevent further captures too if u change capture to true
     // console.log(this);
   }
@@ -56,8 +58,14 @@
     // capture can flip the direction (catches it on the way down instead of up)
     // capture: true
     // default is false:
-    capture: false
+    capture: false,
+    once: true // listen for a click, and then UNBIND itself ( or div.removeEventListener)
+    // this could be cool if u dont want it to keep running each time it happens kinda vibe
   }));
+
+  button.addEventListener('click', ()=>{
+    console.log('clickeroooni my hooomie')
+  })
 
 </script>
 </body>
