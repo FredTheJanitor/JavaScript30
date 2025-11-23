@@ -121,67 +121,82 @@
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
 
-
+// console.table(inventors.map((inventor)=>`${inventor.first} ${inventor.last}`));
 
 const firstAndLastNames = inventors.map((person)=>person.first + " " + person.last);
 console.log('Here is an array of the inventors first and last names');
 console.table(firstAndLastNames);
 
 // ------------------------------Extra map Exercises from ChatGPT---------------------------------
-// 🧠 Map Practice 1
-// Create an array of inventors’ first names only.
-// 🧩 Example output: ["Albert", "Isaac", "Galileo", ...]
+// // 🧠 Map Practice 1
+// // Create an array of inventors’ first names only.
+// // 🧩 Example output: ["Albert", "Isaac", "Galileo", ...]
 
-const firstNames = inventors.map((item)=>item.first);
-console.log(" Here is an array of inventors’ first names only.");
-console.table(firstNames);
+// const firstNames = inventors.map((item)=>item.first);
+// console.log(" Here is an array of inventors’ first names only.");
+// console.table(firstNames);
 
-// ⚡ Map Practice 2
-// Create an array of inventors’ lifespans (years lived).
-const lifespan = inventors.map((item)=>item.last + ": " + (item.passed - item.year));
-console.log("array of inventors’ lifespans (years lived).");
-console.table(lifespan);
+// // ⚡ Map Practice 2
+// // Create an array of inventors’ lifespans (years lived).
+// const lifespan = inventors.map((item)=>item.last + ": " + (item.passed - item.year));
+// console.log("array of inventors’ lifespans (years lived).");
+// console.table(lifespan);
 
-// 🧩 Hint: use passed - year.
-// 🧩 Example output: [76, 84, 78, ...]
+// // 🧩 Hint: use passed - year.
+// // 🧩 Example output: [76, 84, 78, ...]
 
-// 🧩 Map Practice 3
-// Create an array of objects with only the inventor’s name and lifespan.
-// 🧩 Example output:
+// // 🧩 Map Practice 3
+// // Create an array of objects with only the inventor’s name and lifespan.
+// // 🧩 Example output:
 
-const lifespanAndFullName = inventors.map((item)=>item.first + " " + item.last + ": lifespan: " + (item.passed - item.year));
-console.log("array of inventors’ lifespans (years lived).");
-console.table(lifespanAndFullName);
-//this one was mostly copy paste because I already did it, so I just added the other name
+// const lifespanAndFullName = inventors.map((item)=>item.first + " " + item.last + ": lifespan: " + (item.passed - item.year));
+// console.log("array of inventors’ lifespans (years lived).");
+// console.table(lifespanAndFullName);
+// //this one was mostly copy paste because I already did it, so I just added the other name
 
-// [
-//   { name: "Albert Einstein", lifespan: 76 },
-//   { name: "Isaac Newton", lifespan: 84 },
-//   ...
-// ]
+// // [
+// //   { name: "Albert Einstein", lifespan: 76 },
+// //   { name: "Isaac Newton", lifespan: 84 },
+// //   ...
+// // ]
 
-// 💡 Map Practice 4
-// Create an array of strings in this format:
-// "<FIRST> <LAST> was born in <YEAR>."
-// 🧩 Example output:
-// ["Albert Einstein was born in 1879.", "Isaac Newton was born in 1643.", ...]
-const inventorBornSentence = inventors.map((inventor)=> `${inventor.first} ${inventor.last} was born in ${inventor.year}.`);
-console.log("here is an array of strings in this format:<FIRST> <LAST> was born in <YEAR>.")
-console.table(inventorBornSentence);
+// // 💡 Map Practice 4
+// // Create an array of strings in this format:
+// // "<FIRST> <LAST> was born in <YEAR>."
+// // 🧩 Example output:
+// // ["Albert Einstein was born in 1879.", "Isaac Newton was born in 1643.", ...]
+// const inventorBornSentence = inventors.map((inventor)=> `${inventor.first} ${inventor.last} was born in ${inventor.year}.`);
+// console.log("here is an array of strings in this format:<FIRST> <LAST> was born in <YEAR>.")
+// console.table(inventorBornSentence);
 
-// 🔀 Map + String Method Challenge (Bonus)
-// Return an array of lowercased last names.
-// 🧩 Example output:
-// ["einstein", "newton", "galilei", ...]
+// // 🔀 Map + String Method Challenge (Bonus)
+// // Return an array of lowercased last names.
+// // 🧩 Example output:
+// // ["einstein", "newton", "galilei", ...]
 
-const lowercasedLastNames = inventors.map((item)=>item.last.toLocaleLowerCase());
-console.log("Here is an array of lowercased last names.");
-console.table(lowercasedLastNames);
+// const lowercasedLastNames = inventors.map((item)=>item.last.toLocaleLowerCase());
+// console.log("Here is an array of lowercased last names.");
+// console.table(lowercasedLastNames);
 
 // -------------------------------End map Exercises from ChatGPT----------------------------------
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+
+console.table((inventors.sort((a,b)=>a.year-b.year)));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const sorted = inventors.sort(function(a,b) {
 //   if (a.year > b.year) {
