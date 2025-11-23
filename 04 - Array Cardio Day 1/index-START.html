@@ -208,53 +208,53 @@ console.table((inventors.sort((a,b)=>a.year-b.year)));
 // console.table(sorted);
 
 // The above is okay but remember sorted = ternary : thats the most concise way to use sorted
-const sortedByYear = inventors.sort((a,b)=> (a.year > b.year) ? 1 : -1);
-console.log("Sort the inventors by birthdate, oldest to youngest")
-console.table(sortedByYear);
+// const sortedByYear = inventors.sort((a,b)=> (a.year > b.year) ? 1 : -1);
+// console.log("Sort the inventors by birthdate, oldest to youngest")
+// console.table(sortedByYear);
 
 // ------------------------------Extra sort Exercises from ChatGPT---------------------------------
 
-// 🧠 Sort Practice 1:
-// Sort the inventors by birth year, youngest → oldest (reverse of the example).
+// // 🧠 Sort Practice 1:
+// // Sort the inventors by birth year, youngest → oldest (reverse of the example).
 
-const sortedByYearReversed = inventors.sort((a,b)=> (b.year > a.year) ? 1 : -1);
-console.log("Sort the inventors by birth year, youngest → oldest (reverse of the example)")
-console.table(sortedByYearReversed);
+// const sortedByYearReversed = inventors.sort((a,b)=> (b.year > a.year) ? 1 : -1);
+// console.log("Sort the inventors by birth year, youngest → oldest (reverse of the example)")
+// console.table(sortedByYearReversed);
 
-// 🧩 Hint: flip the comparison operator or reverse the order in the ternary.
+// // 🧩 Hint: flip the comparison operator or reverse the order in the ternary.
 
-// ⚡ Sort Practice 2:
-// Sort the inventors by year of death, oldest death → most recent death.
-const sortedByPassed = inventors.sort((a,b)=>(a.passed > b.passed)?1:-1);
-console.log("Sort the inventors by year of death, oldest death → most recent death.");
-console.table(sortedByPassed);
+// // ⚡ Sort Practice 2:
+// // Sort the inventors by year of death, oldest death → most recent death.
+// const sortedByPassed = inventors.sort((a,b)=>(a.passed > b.passed)?1:-1);
+// console.log("Sort the inventors by year of death, oldest death → most recent death.");
+// console.table(sortedByPassed);
 
-// 🧩 Think: a.passed > b.passed ? 1 : -1
+// // 🧩 Think: a.passed > b.passed ? 1 : -1
 
-// 🧩 Sort Practice 3:
-// Sort the inventors by years lived, longest-lived → shortest-lived.
+// // 🧩 Sort Practice 3:
+// // Sort the inventors by years lived, longest-lived → shortest-lived.
 
-// rewrote this to be more legible and not have math in a ternary lol
-const sortedByLifeSpan = inventors.sort((a,b)=>{
-  const lifeSpanA = (a.passed-a.year);
-  const lifespanB = (b.passed-b.year);
-  return (lifeSpanA<lifespanB)?1:-1
-});
-console.log("Sort the inventors by years lived, longest-lived → shortest-lived.");
-console.table(sortedByLifeSpan);
+// // rewrote this to be more legible and not have math in a ternary lol
+// const sortedByLifeSpan = inventors.sort((a,b)=>{
+//   const lifeSpanA = (a.passed-a.year);
+//   const lifespanB = (b.passed-b.year);
+//   return (lifeSpanA<lifespanB)?1:-1
+// });
+// console.log("Sort the inventors by years lived, longest-lived → shortest-lived.");
+// console.table(sortedByLifeSpan);
 
-// 💡 Sort Practice 4:
+// // 💡 Sort Practice 4:
 
-// Sort the inventors alphabetically by last name (A → Z).
-const sortByLastName = inventors.sort((a,b)=>(a.last>b.last)?1:-1);
-console.log("Sort the inventors alphabetically by last name (A → Z)");
-console.table(sortByLastName);
+// // Sort the inventors alphabetically by last name (A → Z).
+// const sortByLastName = inventors.sort((a,b)=>(a.last>b.last)?1:-1);
+// console.log("Sort the inventors alphabetically by last name (A → Z)");
+// console.table(sortByLastName);
 
-// 🔀 Sort Practice 5 (Bonus Challenge):
-// Sort the inventors alphabetically by first name, but in reverse (Z → A) order.
-const sortByFirstNameReversed = inventors.sort((a,b)=>(a.first<b.first)?1:-1);
-console.log("Sort the inventors alphabetically by first name, but in reverse (Z → A) order.");
-console.table(sortByFirstNameReversed);
+// // 🔀 Sort Practice 5 (Bonus Challenge):
+// // Sort the inventors alphabetically by first name, but in reverse (Z → A) order.
+// const sortByFirstNameReversed = inventors.sort((a,b)=>(a.first<b.first)?1:-1);
+// console.log("Sort the inventors alphabetically by first name, but in reverse (Z → A) order.");
+// console.table(sortByFirstNameReversed);
 
 
 // -------------------------------End sort Exercises from ChatGPT----------------------------------
