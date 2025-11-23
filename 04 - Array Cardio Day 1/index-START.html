@@ -185,19 +185,6 @@ console.table(firstAndLastNames);
 
 console.table((inventors.sort((a,b)=>a.year-b.year)));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // const sorted = inventors.sort(function(a,b) {
 //   if (a.year > b.year) {
 //     return 1;
@@ -261,6 +248,24 @@ console.table((inventors.sort((a,b)=>a.year-b.year)));
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+
+    // i got too cute with this one
+// console.table(inventors.reduce((totalYears, arrItem)=>totalYears+arrItem.passed-arrItem.year,0));
+
+// this makes it more readable, but i feel that humans lean towards a misunderstanding of the 
+// variables due to an over-personalization of how birth/death dates/ human centric time works
+console.table(inventors.reduce(
+  (totalYears, arrItem) => {
+  return totalYears+(arrItem.passed-arrItem.year);
+},0));
+
+
+
+
+
+
+
+
 const totalYearsLivedSum = inventors.reduce((total,inventor) => {
   return total + inventor.passed - inventor.year;
 },0)
