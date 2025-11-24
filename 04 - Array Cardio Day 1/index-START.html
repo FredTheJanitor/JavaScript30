@@ -254,16 +254,10 @@ console.table((inventors.sort((a,b)=>a.year-b.year)));
 
 // this makes it more readable, but i feel that humans lean towards a misunderstanding of the 
 // variables due to an over-personalization of how birth/death dates/ human centric time works
-console.table(inventors.reduce(
-  (totalYears, arrItem) => {
-  return totalYears+(arrItem.passed-arrItem.year);
-},0));
-
-
-
-
-
-
+// console.table(inventors.reduce(
+//   (totalYears, arrItem) => {
+//   return totalYears+(arrItem.passed-arrItem.year);
+// },0));
 
 
 const totalYearsLivedSum = inventors.reduce((total,inventor) => {
@@ -273,6 +267,20 @@ console.log("How many years did all the inventors live all together?");
 console.table(totalYearsLivedSum);
 
     // 5. Sort the inventors by years lived
+
+console.table(inventors.sort((a,b)=>(a.passed-a.year)-(b.passed-b.year)));
+
+
+
+
+
+
+
+
+
+
+
+
 
 // already did this thanks to gpt but the video shows a way that while more verbose, seems more legible
 const sortedByLifeSpanPretty = inventors.sort((a,b)=>{
