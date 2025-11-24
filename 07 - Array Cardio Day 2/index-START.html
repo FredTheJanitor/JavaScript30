@@ -33,6 +33,14 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+const someone19 = people.some((person)=>{
+  // I fucked up originally because i didnt have () after get full year
+  return (new Date().getFullYear() - person.year) >= 19
+})
+console.log(({someone19}));
+
+
+
     // // so make a variable to hold a some function across some data
     // const isAdult = people.some(function(person) {
     //   // this current year thing is just how u get current date in js
@@ -45,17 +53,22 @@
     //   }
     // });
 
-    // here is the simplified version of writing this: lets keep it this level for now
-    const isAdult = people.some(person=> {
-      const currentYear = (new Date()).getFullYear();
-      return ((currentYear - person.year) >=19)
-    });
-    // // clever way to make it a one-liner is just replacing currentYear with the calculation
-    // const isAdult = people.some(person=>(((new Date()).getFullYear())-person.year)>=19);
+    // // here is the simplified version of writing this: lets keep it this level for now
+    // const isAdult = people.some(person=> {
+    //   const currentYear = (new Date()).getFullYear();
+    //   return ((currentYear - person.year) >=19)
+    // });
+    // // // clever way to make it a one-liner is just replacing currentYear with the calculation
+    // // const isAdult = people.some(person=>(((new Date()).getFullYear())-person.year)>=19);
 
-    // curly brackets here will show name AND boolean, making .some a bit more useful (if u ask me)
-    console.log({isAdult});
-    // Array.prototype.every() // is everyone 19 or older?
+    // // curly brackets here will show name AND boolean, making .some a bit more useful (if u ask me)
+    // console.log({isAdult});
+    // // Array.prototype.every() // is everyone 19 or older?
+
+// const everyone19 = people.every((person)=>{
+//   return (new Date().getFullYear() - person.year) === 19
+// })
+// console.log(({everyone19}));
 
     const allAdults = people.every(person=> {
       const currentYear = (new Date()).getFullYear();
