@@ -268,18 +268,11 @@ console.table(totalYearsLivedSum);
 
     // 5. Sort the inventors by years lived
 
-console.table(inventors.sort((a,b)=>(a.passed-a.year)-(b.passed-b.year)));
-
-
-
-
-
-
-
-
-
-
-
+  // this is good, but could get a little murky if someone else is figuring it out
+// console.table(inventors.sort(
+//   (a,b)=>(a.passed-a.year)-(b.passed-b.year)
+//   )
+// );
 
 
 // already did this thanks to gpt but the video shows a way that while more verbose, seems more legible
@@ -299,6 +292,8 @@ console.table(sortedByLifeSpanPretty);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+
     // this one i want to focus on because it seems like it would be useful for webscraping etc
     // (and also im super rusty on DOM selection of HTML elements lol)
 
@@ -409,6 +404,25 @@ console.table(sortedByLifeSpanPretty);
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+
+const lastNamePeopleSort = people.sort((a,b)=>{
+  const [aLast, afirst] = a.split(', ');
+  const [bLast, bfirst] = b.split(', ');
+  return (aLast.localeCompare(bLast));
+})
+console.table(lastNamePeopleSort);
+
+
+
+
+
+
+
+
+
+
+
+
 const lastNamePeople = people.sort()
 console.table(lastNamePeople);
 // ok so yeah, but the point of this one was to split a messy string into parts and then sort said parts.
@@ -497,6 +511,27 @@ console.table(namesByLengthOfLast);
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+  const vehicleCount = data.reduce((countingObj,indvThing)=>{
+    if (!countingObj[indvThing]) {
+      countingObj[indvThing] = 0
+    }
+    countingObj[indvThing] += 1
+    return countingObj
+
+  }  
+  ,{})
+  console.table(vehicleCount);
+
+
+
+
+
+
+
+
+
+
 
     // start by assigning a variable the data to reduce (you can use an object for tallying over each item)
     const transportation = data.reduce((obj,item)=>{
